@@ -36,7 +36,7 @@ public class Barang {
         }
         return hrg;
     }
-    
+     
     public void addItem(String nama, float harga){
         this.items.put (nama,harga);
     }
