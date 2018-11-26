@@ -18,4 +18,49 @@ public class Item {
     private int jumlah;
     //atribut untuk menyimpan harga barang
     private int harga;
+
+    //konstruktor
+    public Item(String name, int jumlah, int harga) {
+        this.name = name;
+        this.jumlah = jumlah;
+        this.harga = harga;
+    }
+    
+    public Item(){
+        
+    }
+
+    
+    //getter nama
+    public String getName() {
+        return name;
+    }
+
+    //setter nama
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    //getter jumlah
+    public int getJumlah() {
+        return jumlah;
+    }
+
+    //setter jumlah
+    public void setJumlah(int jumlah) {
+        this.jumlah = jumlah;
+    }
+
+    //getter harga
+    public int getHarga() {
+        return harga;
+    }
+
+    //setter harga
+    public void setHarga(int harga) {
+        this.harga = harga;
+    }
+    
+    
 }
+
