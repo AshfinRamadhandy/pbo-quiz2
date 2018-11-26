@@ -18,14 +18,15 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 
 public class TableBarang extends javax.swing.JFrame {
+    //id transaksi
     private int id = 0;
-    
+    //kode transaksi
     private String code;
-    
+    //JtbModel
     private DefaultTableModel tbModel;
-    
+    //JcbModels
     private DefaultComboBoxModel cbModel;
-    
+    //untuk menampilkan barang pembelian
     private ArrayList<Item> beli = new ArrayList<>(); 
     
     public TableBarang() {
