@@ -11,5 +11,17 @@ package Ashfin.barang;
  */
 import java.util.*;
 public class Transaksi {
+     // variable kode untuk menampilkan kode item
+    private final String kode ;
+    // variable item untuk menampilkan item yang dibeli
+    private ArrayList<Item> items = new ArrayList<>() ;
+    // variable total untuk menampilkan total pembelian
+    private float total ; 
+
+    public Transaksi(String kode, float total) {
+        this.kode = kode;
+        this.total = total;
+    }
+    
     
 }
