@@ -14,4 +14,8 @@ package Ashfin.barang;
 public class Item {
     //atribut yg digunkana untuk menyimpan nama barang
     private String name;
+    //atribut untuk menyimpan jumlah barang yg di beli
+    private int jumlah;
+    //atribut untuk menyimpan harga barang
+    private int harga;
 }
