@@ -89,7 +89,7 @@ public class TableBarang extends javax.swing.JFrame {
         }
     }
     
-    //apabila membeli 2 item yang sama
+    //mengecek apabila membeli 2 item yang sama
     private boolean doble(String name){
         boolean result = false;
         ArrayList<String>item = new ArrayList<>();
@@ -105,7 +105,10 @@ public class TableBarang extends javax.swing.JFrame {
         return result;
     }
     
-    
+    //mengecek apabila tabel masih kosong
+    private boolean isEmpty(){
+        return this.jTable1.getModel().getRowCount()<=0;
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -148,6 +151,7 @@ public class TableBarang extends javax.swing.JFrame {
 
         jTextField2.setText(" ");
 
+        jTable1.setModel(this.tbModel);
         jScrollPane1.setViewportView(jTable1);
 
         jButton4.setText("Save");
