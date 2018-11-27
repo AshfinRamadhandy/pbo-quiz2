@@ -36,6 +36,39 @@ public class TableBarang extends javax.swing.JFrame {
         
         initComponents();
     }
+    
+    //untuk menambahkan id
+    private void tmbhId(){
+        this.id += 1;
+    }
+    
+    //pengurangan id
+    private void krgId(){
+        this.id -= 1;
+    }
+    
+    //fungsi code
+    private String setKode(){
+        this.tmbhId();
+        //untuk waktunya
+        String kd = new SimpleDateFormat ("yyMMdd").format(new Date());
+        this.code = String.format(kd + "%02d",this.id);
+        return code;
+    }
+    
+    private Object[] addItem (String name,int jumlah){
+        float harga = 0;
+        Barang items = new Barang();
+        for(int i = 0; i< items.getNames().size();
+                i++){
+            if(name.equalsIgnoreCase(items.getNames().get(i))){
+                harga = items.getPrices().get(i);
+            }
+        }
+        Object[]obj ={name,harga,jumlah
+        };
+        return obj;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
