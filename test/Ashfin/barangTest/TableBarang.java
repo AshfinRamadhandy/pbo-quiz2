@@ -110,6 +110,19 @@ public class TableBarang extends javax.swing.JFrame {
         return this.jTable1.getModel().getRowCount()<=0;
     }
     
+    //setEnable/disable untuk button remove dan save apabila tabel blm terisi
+    private void belanja(){
+        if(isEmpty()){
+            this.buttonSave.setEnabled(false);
+            this.buttonRemove.setEnabled(false);
+        }else{
+            this.buttonSave.setEnabled(true);
+            this.buttonRemove.setEnabled(true);
+        }
+    }
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -125,11 +138,11 @@ public class TableBarang extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        buttonRemove = new javax.swing.JButton();
         jTextField2 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton4 = new javax.swing.JButton();
+        buttonSave = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -147,14 +160,14 @@ public class TableBarang extends javax.swing.JFrame {
 
         jButton2.setText("Add");
 
-        jButton3.setText("Remove");
+        buttonRemove.setText("Remove");
 
         jTextField2.setText(" ");
 
         jTable1.setModel(this.tbModel);
         jScrollPane1.setViewportView(jTable1);
 
-        jButton4.setText("Save");
+        buttonSave.setText("Save");
 
         jButton5.setText("Cancel");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -184,11 +197,11 @@ public class TableBarang extends javax.swing.JFrame {
                             .addComponent(jTextField1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonRemove, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton4)
+                        .addComponent(buttonSave)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton5)
                         .addGap(0, 402, Short.MAX_VALUE)))
@@ -211,13 +224,13 @@ public class TableBarang extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(31, 31, 31)
-                        .addComponent(jButton3))
+                        .addComponent(buttonRemove))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
+                    .addComponent(buttonSave)
                     .addComponent(jButton5))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
@@ -265,10 +278,10 @@ public class TableBarang extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonRemove;
+    private javax.swing.JButton buttonSave;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
