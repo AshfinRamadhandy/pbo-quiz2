@@ -173,6 +173,11 @@ public class TableBarang extends javax.swing.JFrame {
         buttonNew.setText("New");
 
         buttonAdd.setText("Add");
+        buttonAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAddActionPerformed(evt);
+            }
+        });
 
         buttonRemove.setText("Remove");
 
@@ -258,7 +263,8 @@ public class TableBarang extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelActionPerformed
-       
+       TransaksiBaru() ;
+        this.krgId() ;
     }//GEN-LAST:event_buttonCancelActionPerformed
 
     private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveActionPerformed
@@ -287,6 +293,28 @@ public class TableBarang extends javax.swing.JFrame {
             System.out.println(e.getMessage());
         }
     }//GEN-LAST:event_buttonSaveActionPerformed
+
+    private void buttonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddActionPerformed
+        //item yg dipilih
+        String name = this.pilihItem.getSelectedItem().toString();
+        //JTextField jmlhItem di jadikan integer
+        int jumlah = new Integer (this.jmlhItem.getText());
+        float harga = new Float(this.jmlhItem.getText());
+        Item item = new Item(name, jumlah, harga);
+
+
+//mengecek apakah membeli 2 barang yg sama
+        if(doble(name)){
+            updateJumlah(name,jumlah);
+        }else{
+           Object[]obj ={
+               item.getName(),
+               item.getHarga(),
+               item.getJumlah()
+           };
+        }
+        this.belanja();
+    }//GEN-LAST:event_buttonAddActionPerformed
 
     /**
      * @param args the command line arguments
