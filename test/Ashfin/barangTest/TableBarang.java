@@ -26,7 +26,13 @@ public class TableBarang extends javax.swing.JFrame {
     
     
     public TableBarang() {
-        Barang comboBox = new Barang();
+        Barang comboModel = new Barang();
+        //set combo Items
+        this.cbModel = new DefaultComboBoxModel <> (comboModel.getNames().toArray());
+        
+         TableItems tableModel = new TableItems () ;
+         //tabel kolom nama
+        this.tbModel = new DefaultTableModel (tableModel.getKolomNama() , 0)  ;
         
         initComponents();
     }
