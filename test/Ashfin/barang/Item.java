@@ -17,17 +17,26 @@ public class Item {
     //atribut untuk menyimpan jumlah barang yg di beli
     private int jumlah;
     //atribut untuk menyimpan harga barang
-    private Float harga;
+    private float harga;
 
     //konstruktor
-    public Item(String name, int jumlah, Float harga) {
+    public Item(String name, int jumlah, float harga) {
         this.name = name;
         this.jumlah = jumlah;
         this.harga = harga;
+        switch (name){
+            case "Kopi" : this.harga = 10000;
+            break;
+            case "Gula" : this.harga = 20000;
+            break;
+            case "Susu" : this.harga = 30000;
+            break;
+        }
     }
     
-    public Item(){
-        
+    public Item(String name,int jumlah){
+        this.name = name;
+        this.jumlah = jumlah;
     }
 
     
