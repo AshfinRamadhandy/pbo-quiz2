@@ -26,10 +26,6 @@ public class TableBarang extends javax.swing.JFrame {
     
     
     public TableBarang() {
-        Barang comboModel = new Barang();
-        //set combo Items
-        this.cbModel = new DefaultComboBoxModel <> (comboModel.getNames().toArray());
-        
          TableItems tableModel = new TableItems () ;
          //tabel kolom nama
         this.tbModel = new DefaultTableModel (tableModel.getKolomNama() , 0)  ;
@@ -56,20 +52,6 @@ public class TableBarang extends javax.swing.JFrame {
         return code;
     }
     
-    private Object[] addItem (String name,int jumlah){
-        float harga = 0;
-        Barang items = new Barang();
-        for(int i = 0; i< items.getNames().size();
-                i++){
-            if(name.equalsIgnoreCase(items.getNames().get(i))){
-                harga = items.getPrices().get(i);
-            }
-        }
-        Object[]obj ={name,harga,jumlah
-        };
-        return obj;
-    }
-
     
     //update jumlah barang
     private void updateJumlah(String name, int add){
@@ -167,7 +149,7 @@ public class TableBarang extends javax.swing.JFrame {
 
         kode.setText(" ");
 
-        pilihItem.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        pilihItem.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gula", "Kopi", "Susu" }));
         pilihItem.setSelectedIndex(-1);
 
         buttonNew.setText("New");
@@ -215,11 +197,11 @@ public class TableBarang extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE))
-                .addGap(37, 37, 37)
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -322,6 +304,7 @@ public class TableBarang extends javax.swing.JFrame {
                item.getHarga(),
                item.getJumlah()
            };
+           tbModel.addRow(obj);
         }
         this.belanja();
     }//GEN-LAST:event_buttonAddActionPerformed

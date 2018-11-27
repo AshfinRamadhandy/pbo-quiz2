@@ -73,7 +73,7 @@ public class Item {
     public String toString(){
         return this.name;
     } 
-    
+    //untuk total harga
     public float getTotal(){
         return this.harga*this.jumlah;
                 
