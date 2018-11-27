@@ -182,6 +182,11 @@ public class TableBarang extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         buttonSave.setText("Save");
+        buttonSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSaveActionPerformed(evt);
+            }
+        });
 
         buttonCancel.setText("Cancel");
         buttonCancel.addActionListener(new java.awt.event.ActionListener() {
@@ -253,8 +258,35 @@ public class TableBarang extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelActionPerformed
-        
+       
     }//GEN-LAST:event_buttonCancelActionPerformed
+
+    private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveActionPerformed
+        try{
+            //looping untuk setiap tabel
+            for(int i = 0; i<tbModel.getRowCount();
+                    i++){
+                 // menyimpan nama barang dan jumlahnya menjadi variable
+                String name = tbModel.getValueAt (i , 0).toString () ;
+                float harga = new Float (tbModel.getValueAt(0 , 1).toString()) ;
+                int jumlah = new Integer (tbModel.getValueAt (i , 2).toString());
+                this.belanja.add (new Item(name, jumlah, harga ));
+            }   
+             // instansiasi kelas Transaksi dengan kode dan committed belanja
+            Transaksi ts = new Transaksi (this.code , this.belanja) ;
+            // Stringbuilder untuk menangani output Transaksi
+            StringBuilder sb = new StringBuilder() ;
+            // menambahkan hasil transaksi
+            sb.append(ts.Pembayaran()) ;
+            // memanggil dialog dengan StringBuilder
+            JOptionPane.showMessageDialog(this , sb , "Transaksi" , JOptionPane.INFORMATION_MESSAGE) ;
+            
+            // melakukan transaksi baru
+            TransaksiBaru () ;
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_buttonSaveActionPerformed
 
     /**
      * @param args the command line arguments
