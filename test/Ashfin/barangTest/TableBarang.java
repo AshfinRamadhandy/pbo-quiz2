@@ -89,6 +89,23 @@ public class TableBarang extends javax.swing.JFrame {
         }
     }
     
+    //apabila membeli 2 item yang sama
+    private boolean doble(String name){
+        boolean result = false;
+        ArrayList<String>item = new ArrayList<>();
+        for(int i = 0; i<tbModel.getRowCount();
+                i++){
+            item.add (tbModel.getValueAt(i,0).toString());
+        }
+        for(String i : item){
+            if(i.equals(name)){
+                result = true;
+            }
+        }
+        return result;
+    }
+    
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
