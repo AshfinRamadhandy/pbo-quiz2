@@ -17,10 +17,10 @@ public class Item {
     //atribut untuk menyimpan jumlah barang yg di beli
     private int jumlah;
     //atribut untuk menyimpan harga barang
-    private int harga;
+    private Float harga;
 
     //konstruktor
-    public Item(String name, int jumlah, int harga) {
+    public Item(String name, int jumlah, Float harga) {
         this.name = name;
         this.jumlah = jumlah;
         this.harga = harga;
@@ -52,12 +52,12 @@ public class Item {
     }
 
     //getter harga
-    public int getHarga() {
+    public float getHarga() {
         return harga;
     }
 
     //setter harga
-    public void setHarga(int harga) {
+    public void setHarga(float harga) {
         this.harga = harga;
     }
     
