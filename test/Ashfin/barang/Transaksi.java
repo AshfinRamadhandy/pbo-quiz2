@@ -18,9 +18,9 @@ public class Transaksi {
     // variable total untuk menampilkan total pembelian
     private float total ; 
 
-    public Transaksi(String kode, float total) {
+    public Transaksi(String kode, ArrayList<Item> items) {
         this.kode = kode;
-        this.total = total;
+        this.items = items;
     }
     
     
