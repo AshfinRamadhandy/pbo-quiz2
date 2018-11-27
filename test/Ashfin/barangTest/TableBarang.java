@@ -70,6 +70,26 @@ public class TableBarang extends javax.swing.JFrame {
         return obj;
     }
 
+    
+    //update jumlah barang
+    private void updateJumlah(String name, int add){
+        ArrayList<String> item = new ArrayList<>();
+        
+        for(int i = 0; i < tbModel.getRowCount();
+                i++){
+            item.add(tbModel.getValueAt(i, 0).toString());
+        }
+        
+        for(int i=0; i<item.size();
+                i++){
+            if(item.get(i).equals(name)){
+                int jumlah = new Integer(tbModel.getValueAt(i, 2).toString());
+                tbModel.setValueAt(jumlah+add, i, 2);
+            }
+        }
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
