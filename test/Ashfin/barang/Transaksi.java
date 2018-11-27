@@ -33,6 +33,18 @@ public class Transaksi {
         this.total = total;
     }
     
-    
+    //hasil transaiksi
+    public String Pembayaran(){
+        setTotal();
+        String itm = "";
+       itm += "Kode\t\t : " + this.kode + "\n";
+        itm += "Daftar Belanja : \n" ;
+        
+        for (Item item : this.items){
+            itm += "\t" + item.getName() + "(x" + item.getJumlah()+ ") : " + item.getTotal()+ "\n";
+        }
+        itm += "Total\t\t : " +this.total;
+        return itm;
+    }
     
 }
