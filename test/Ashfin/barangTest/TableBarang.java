@@ -171,6 +171,11 @@ public class TableBarang extends javax.swing.JFrame {
         pilihItem.setSelectedIndex(-1);
 
         buttonNew.setText("New");
+        buttonNew.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonNewActionPerformed(evt);
+            }
+        });
 
         buttonAdd.setText("Add");
         buttonAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -180,6 +185,11 @@ public class TableBarang extends javax.swing.JFrame {
         });
 
         buttonRemove.setText("Remove");
+        buttonRemove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonRemoveActionPerformed(evt);
+            }
+        });
 
         jmlhItem.setText(" ");
 
@@ -316,6 +326,34 @@ public class TableBarang extends javax.swing.JFrame {
         this.belanja();
     }//GEN-LAST:event_buttonAddActionPerformed
 
+    private void buttonNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNewActionPerformed
+        this.jmlhItem.setText ("1") ;
+        this.buttonNew.setEnabled (false) ;
+        this.buttonCancel.setEnabled (true) ;
+        this.buttonAdd.setEnabled (true) ;
+        this.jmlhItem.setEnabled (true) ;
+        this.pilihItem.setEnabled (true) ;
+        this.kode.setText (this.setKode()) ;
+    }//GEN-LAST:event_buttonNewActionPerformed
+
+    private void buttonRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRemoveActionPerformed
+       //mengecek apakah ada baris yg sdh dipilih
+       if(jTable1.getSelectedRow()<0){
+           //jika tidak ada, akan muncul perintah
+           String sb = "pilihlah item yang akan di hapus";
+           JOptionPane.showMessageDialog(this,sb,"Information",JOptionPane.INFORMATION_MESSAGE);
+       }else{
+           //kalau ada, maka akan di hapus
+           int count = jTable1.getSelectedRows().length;
+           for(int i = 0;i<count; i++){
+               tbModel.removeRow(jTable1.getSelectedRow());
+           }
+       }
+       this.belanja();
+    }//GEN-LAST:event_buttonRemoveActionPerformed
+
+    
+    
     /**
      * @param args the command line arguments
      */
