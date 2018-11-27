@@ -89,7 +89,12 @@ public class TableBarang extends javax.swing.JFrame {
     
     //mengecek apabila tabel masih kosong
     private boolean isEmpty(){
-        return this.jTable1.getModel().getRowCount()<=0;
+        if(jTable1.getRowCount()<0){
+            return true;
+        }else{
+            return false;
+        }
+        
     }
     
     //setEnable/disable untuk button remove dan save apabila tabel blm terisi
