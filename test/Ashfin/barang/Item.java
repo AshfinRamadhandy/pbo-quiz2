@@ -9,6 +9,7 @@ package Ashfin.barang;
  *
  * @author Dhandy
  */
+
 //Deklarasi class item untuk mempresentasikan barang
 //yang akan dimasukan dalam daftar belanja.
 public class Item {
