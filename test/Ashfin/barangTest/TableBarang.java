@@ -26,7 +26,10 @@ public class TableBarang extends javax.swing.JFrame {
     
     
     public TableBarang() {
-         TableItems tableModel = new TableItems () ;
+        Barang comboModel = new Barang () ;
+        this.cbModel = new DefaultComboBoxModel<>(comboModel.getNames().toArray()) ; 
+        
+        TableItems tableModel = new TableItems () ;
          //tabel kolom nama
         this.tbModel = new DefaultTableModel (tableModel.getKolomNama() , 0)  ;
         
@@ -50,6 +53,23 @@ public class TableBarang extends javax.swing.JFrame {
         String kd = new SimpleDateFormat ("yyMMdd").format(new Date());
         this.code = String.format(kd + "%02d",this.id);
         return code;
+    }
+    
+    private Object[] addItem(String name, int jumlah){
+        float harga= 0;
+        Barang items = new Barang();
+        for(int i = 0; i<items.getPrices().size();
+                i++){
+            if(name.equalsIgnoreCase(items.getNames().get(i))){
+                harga = items.getPrices().get(i);
+            }
+        }
+        Object[] obj = {
+            name,
+            harga,
+            jumlah
+        };
+        return obj;
     }
     
     
@@ -271,7 +291,7 @@ public class TableBarang extends javax.swing.JFrame {
                     i++){
                  // menyimpan nama barang dan jumlahnya menjadi variable
                 String name = tbModel.getValueAt (i , 0).toString () ;
-                float harga = new Float (tbModel.getValueAt(0 , 1).toString()) ;
+                float harga = new Float (tbModel.getValueAt(i , 1).toString()) ;
                 int jumlah = new Integer (tbModel.getValueAt (i , 2).toString());
                 this.belanja.add (new Item(name, jumlah, harga ));
             }   
@@ -296,21 +316,14 @@ public class TableBarang extends javax.swing.JFrame {
         String name = this.pilihItem.getSelectedItem().toString();
         //JTextField jmlhItem di jadikan integer
         int jumlah = new Integer (this.jmlhItem.getText());
-        float harga = new Float(this.jmlhItem.getText());
-        Item item = new Item(name, jumlah, harga);
 
 
 //mengecek apakah membeli 2 barang yg sama
         if(doble(name)){
             updateJumlah(name,jumlah);
         }else{
-           Object[]obj ={
-               item.getName(),
-               item.getHarga(),
-               item.getJumlah()
-           };
-           tbModel.addRow(obj);
-        }
+         tbModel.addRow(addItem(name,jumlah));
+           }
         this.belanja();
     }//GEN-LAST:event_buttonAddActionPerformed
 
