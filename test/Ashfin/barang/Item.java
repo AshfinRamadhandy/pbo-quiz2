@@ -24,14 +24,6 @@ public class Item {
         this.name = name;
         this.jumlah = jumlah;
         this.harga = harga;
-        switch (name){
-            case "Kopi" : this.harga = 10000;
-            break;
-            case "Gula" : this.harga = 20000;
-            break;
-            case "Susu" : this.harga = 30000;
-            break;
-        }
     }
     
     public Item(String name,int jumlah){
