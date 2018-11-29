@@ -26,9 +26,8 @@ public class Item {
         this.harga = harga;
     }
     
-    public Item(String name,int jumlah){
-        this.name = name;
-        this.jumlah = jumlah;
+    public Item(){
+        
     }
 
     
